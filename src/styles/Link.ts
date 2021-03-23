@@ -27,7 +27,7 @@ const Link = styled.a<LinkProps>`
   display: flex;
   align-items: center;
   margin: 0 10px;
-  color: var(--black);
+  color: var(--white);
   border: 0;
   border-radius: 5px;
   cursor: pointer;

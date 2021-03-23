@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { FaHome } from "react-icons/fa";
-import { apiCurso } from "../../api/data";
-import { ICurso } from "../../interfaces/Curso.interface";
+import { ImHome } from "react-icons/im";
+import { apiLogin } from "../../api/data";
+import { ILogin } from "../../interfaces/login.interface";
 import { Link } from "../../styles";
 import { Container } from "./styles";
 
 const Header = () => {
   const router = useRouter();
-  const [cursos, setCursos] = useState<ICurso[]>([]);
+  const [login, setLogin] = useState<ILogin[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await apiCurso.index();
-      setCursos(response.data);
+      const response = await apiLogin.index();
+      setLogin(response.data);
     };
     fetchData();
   }, []);
@@ -21,16 +21,15 @@ const Header = () => {
   return (
     <Container>
       <div className="container">
-        <FaHome onClick={() => router.push("/")} />
-        {cursos &&
-          cursos.map((item) => (
+        <ImHome onClick={() => router.push("/")} />
+        {login &&
+          login.map((item) => (
             <Link key={item.id} href={`/${item.id}`}>
-              {item.nome}
-            </Link>
-          ))}
-      </div>
-    </Container>
+            {item.nome}
+          </Link>
+        ))}
+    </div>
+  </Container>
   );
 };
-
 export default Header;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Header, Loading } from "../components";
+import { Header, Loading } from "../Components";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
