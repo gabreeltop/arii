@@ -11,11 +11,8 @@ const Header = () => {
   const [login, setLogin] = useState<ILogin[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await apiLogin.index();
-      setLogin(response.data);
-    };
-    fetchData();
+     const response = await apiLogin.index();
+     setLogin(response.data);
   }, []);
 
   return (
